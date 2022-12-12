@@ -4,15 +4,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import {Stack_AppScreenData} from '../config/dataConfig'
 
-import Icon from 'react-native-vector-icons/Ionicons';
-
 const Stack = createStackNavigator();
 
 const StackAppScreenData = () =>{
     return(
         <Stack.Navigator>
             {
-                Stack_AppScreenData.map((screenData, index) =>
+                Stack_AppScreenData.map((screenData: any, index: number) =>
                     <Stack.Screen 
                         key={index}
                         name={screenData.name}

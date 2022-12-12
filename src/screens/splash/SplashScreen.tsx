@@ -1,16 +1,31 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {
     View, 
     Image,
     Text
 } from 'react-native'
 
+import { useDispatch } from "react-redux";
+
 import {
     styles,
     colors
 } from "../../asset/css/basestyle";
 
+import * as HomeActions from '../../redux/home/home_actions';
+
 const SplashScreen = () =>{
+
+    const dispatch = useDispatch()
+
+    const GetDisplayData = async() =>{
+        await dispatch(HomeActions.GetHomeScreeTopStories());
+    }
+
+    useEffect(() =>{
+        GetDisplayData()
+    },[])
+
     return(
         <View 
             style = {
